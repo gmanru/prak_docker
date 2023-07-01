@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Лента подписки{% endblock %}
+{% block header %}Лента подписки{% endblock %}
+{% block content %}
+  <div class="container">
+
+      <!-- Вот он, новый include! -->
+      {% include "includes/post_item.html" %}
+
+  </div>
+
+  <!-- Вывод паджинатора -->
+  {% include "includes/paginator.html" %}
+
+{% endblock %}

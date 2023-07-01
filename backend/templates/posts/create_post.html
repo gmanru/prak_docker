@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%block title%}Создание нового поста{%endblock%}
+{%block content%}
+<div class="row justify-content-center">
+  <div class="col-md-8 p-5">
+    <div class="card">
+      <div class="card-header">       
+        Новый пост             
+      </div>
+        <form method="post" enctype="multipart/form-data" action="{% if is_edit %}{% url 'posts:post_edit' post.id %}{% else %}{% url 'posts:post_create' %}{% endif %}">
+        {% csrf_token %}
+        {{ form.as_p}}
+        {% if is_edit %}
+        <input type="submit" value="Отправить">
+        {% else %}
+        <input type="submit" value="Добавить">
+        {% endif %}
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
